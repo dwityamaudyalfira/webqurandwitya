@@ -1,58 +1,83 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+<script>
+import { ref } from "vue";
+import axios from "axios";
 
-const router = createRouter({
-history: createWebHistory(import.meta.env.BASE_URL),
-routes: [
-{
-path: "/",
-name: "home",
-component: HomeView,
-},
-{
-path: "/about",
-name: "about",
-// route level code-splitting
-// this generates a separate chunk (About.[hash].js) for this route
-// which is lazy-loaded when the route is visited.
-component: () => import("../views/AboutView.vue"),
-},
-{
-path: "/juzs/:id",
-name: "juzs",
-// route level code-splitting
-// this generates a separate chunk (About.[hash].js) for this route
-// which is lazy-loaded when the route is visited.
-component: () => import("../views/JuzView.vue"),
-},
-{
-path: "/surahs/:id",
-name: "surahs",
-// route level code-splitting
-// this generates a separate chunk (About.[hash].js) for this route
-// which is lazy-loaded when the route is visited.
-component: () => import("../views/SurahView.vue"),
-},
-{
-path: "/search",
-name: "search",
-// route level code-splitting
-// this generates a separate chunk (About.[hash].js) for this route
-// which is lazy-loaded when the route is visited.
-component: () => import("../views/SearchView.vue"),
-},
-{
-path: "/random",
-name: "random",
-// route level code-splitting
-// this generates a separate chunk (About.[hash].js) for this route
-// which is lazy-loaded when the route is visited.
-component: () => import("../views/RandomView.vue"),
-},
+export default {
+  data()
+  {
+    return {
+      error: false,
+      loading: true,
+      info: '',
+      surah: ref([]),
+      infosurah: ref([]),
+      translation : ref([])
+    }
+  },
+  watch:{
+    $route(){
+      this.getSurah();
+      this.getInfoSurah();
+    }
+  },
 
+  mounted()
+  {
+    this.getSurah()
+    this.getInfoSurah()
+  },
 
-],
-});
+  methods: {
+    getSurah()
+    {
+      axios.get('https://api.quran.com/api/v4/chapters/' + this.$route.params.id)
+        .then(response =>
+        {
+          this.surah = response.data.chapter
+        })
+        .catch(error =>
+        {
+          console.log(error)
+          this.error = true
+        })
+        .finally(() => this.loading = false)
+    },
+    getInfoSurah()
+    {
+      axios.get('https://api.quran.com/api/v4/chapters/' + this.$route.params.id + '/info?language=id')
+        .then(response =>
+        {
+          this.infosurah = response.data.chapter_info
+          this.info = this.infosurah.text
+        })
+        .catch(error =>
+        {
+          console.log(error)
+          this.error = true
+        })
+        .finally(() => this.loading = false)
+    },
+    getTranslate()
+    {
+      axios.get('https://api.quran.com/api/v4/quran/translations/134?chapter_number=' + this.$route.params.id )
+        .then(response =>
+        {
+          this.translation = response.data.translations
+        })
+        .catch(error =>
+        {
+          console.log(error)
+          this.error = true
+        })
+        .finally(() => this.loading = false)
+    }
+  }
+}
+</script>
 
-export default router;
-
+<template>
+  <div class="text-center">
+    <h1>Surah {{ surah.name_complex }}</h1>
+    <div v-html="info"></div>
+  </div>
+</template>
