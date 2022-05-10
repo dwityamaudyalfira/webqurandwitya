@@ -1,35 +1,38 @@
 <template>
-  <section class="hero is-small">
-    <div class="hero-body">
-      <p class="title">
-        Random Ayat
-      </p>
-      <p class="subtitle">
-        Random Ayat from https://api.quran.com/
-      </p>
-    </div>
-  </section>
-  <section class="content">
-    <div>
-      <h2 v-if="chapter" class="has-text-right">{{chapter.name_arabic}} {{verse.verse_number}}</h2>
-      <p v-if="audio" class="has-text-right">
-        <audio controls>
-          <source :src=audio type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </p>
-      <h3 v-if="quran" class="has-text-right quran">{{quran.text_uthmani}}</h3>
-      <p v-if="translation">{{translation.text}}</p>
-    </div>
-    <div class="has-text-centered" v-if="isLoading">
-      <i class="fa-solid fa-spinner fa-pulse"></i>
-    </div>
+  <section class="semua" style="background-color: #E1BA9D;">
+    <section class="hero is-small">
+      <div class="hero-body">
+        <p class="title">
+          Ayat Pilihan
+        </p>
+        <p class="subtitle">
+          Kumpulan ayat pilihan dalam Al-Qur'an.
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      <div>
+        <h2 v-if="chapter" class="has-text-right">{{chapter.name_arabic}} {{verse.verse_number}}</h2>
+        <p v-if="audio" class="has-text-right">
+          <audio controls>
+            <source :src=audio type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+        <h3 v-if="quran" class="has-text-right quran">{{quran.text_uthmani}}</h3>
+        <p v-if="translation">{{translation.text}}</p>
+      </div>
+      <div class="has-text-centered" v-if="isLoading">
+        <i class="fa-solid fa-spinner fa-pulse"></i>
+      </div>
+    </section>
+    <FooterView/>
   </section>
 </template>
 
 <script>
 export default {
-  name: "RandomView",
+  name: "QuranView",
   data() {
     return {
       isLoading: false,
@@ -91,7 +94,9 @@ export default {
         })
     },
 
+    async getTafsir(){
 
+    },
 
     async fetchQuran(path){
       this.isLoading = true;
@@ -123,3 +128,34 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.quran{
+  font-family: 'Amiri', serif;
+}
+.title{
+  text-align: center;
+
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 2px;
+
+  font-family: "Segoe UI";
+  color: white;
+}
+.subtitle{
+  font-size: 20px;
+  font-style: italic;
+
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: "Segoe UI";
+  color: white;
+}
+.content{
+  text-align: center;
+}
+.semua{
+  padding: 50px;
+}
+</style>

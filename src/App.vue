@@ -70,33 +70,57 @@ export default {
     </div>
 
     <div v-else class="container">
-      <ul class="nav nav-pills justify-content-center">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-             aria-expanded="false">Juz</a>
-          <ul class="dropdown-menu">
-            <li v-for="juz in juzs" :key="juz.id">
-              <router-link :to="{ name: 'juzs', params: { id: juz.id } }" class="dropdown-item">{{ juz.juz_number }}
-              </router-link>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-             aria-expanded="false">Surah</a>
-          <ul class="dropdown-menu">
-            <li v-for="surah in surahs" :key="surah.id">
-              <router-link :to="{ name: 'surahs', params: { id: surah.id } }" class="dropdown-item">{{
-                  surah.name_complex
-                }}</router-link>
-            </li>
-          </ul>
-        </li>
-        <router-link :to="{ name: 'search' }" class="nav-link">Search</router-link>
-        <li class="nav-item">
-          <router-link :to="{ name: 'random' }" class="nav-link">Random Ayat</router-link>
-        </li>
-      </ul>
+      <nav
+        class="navbar navbar-light"
+        style="background-color: #E1BA9D"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img  src="../assets/logo1.ico" class="rounded float-start" alt="" width = 70 height = 70/>
+            Quran.com by Dwitya Maudy Alfira
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <RouterLink class="nav-link active" aria-current="page" to="/"
+                >Home</RouterLink
+                >
+              </li>
+              <li class="nav-item">
+                <router-link :to="{ name: 'search' }" class="nav-link">Search</router-link>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                   aria-expanded="false">Surah</a>
+                <ul class="dropdown-menu">
+                  <li v-for="surah in surahs" :key="surah.id">
+                    <router-link :to="{ name: 'surahs', params: { id: surah.id } }" class="dropdown-item">{{
+                        surah.name_complex
+                      }}</router-link>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{ name: 'random' }" class="nav-link">Ayat Pilihan</router-link>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link" to="/contact">Contact</RouterLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <RouterView />
     </div>
   </section>
