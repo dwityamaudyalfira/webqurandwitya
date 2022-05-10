@@ -82,7 +82,7 @@ export default {
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img  src="../assets/logo2.png" class="rounded float-start"  width = 70 height = 70 />
+            <img  src="src/assets/logo2.png" class="rounded float-start"  width = 70 height = 70 />
             <div class ="buka justify-content-center">Quran.com by Dwitya Maudy Alfira</div>
           </a>
           <button
