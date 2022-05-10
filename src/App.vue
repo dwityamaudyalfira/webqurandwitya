@@ -1,4 +1,10 @@
 <script>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#E1BA9D";
+  document.getElementsByTagName("body")[0].style.backgroundSize ="cover";
+});
 import { RouterView } from 'vue-router'
 import { ref } from "vue";
 import axios from "axios";
@@ -72,16 +78,12 @@ export default {
     <div v-else class="container">
       <nav
         class="navbar navbar-light"
-        style="background-color: #E1BA9D"
+        style="background-color: #FAE7DB"
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img
-              src="src/assets/logoquran.png"
-              alt=""
-              class="d-inline-block align-text-middle"
-            />
-            Quran.com by Dwitya Maudy Alfira
+            <img  src="../assets/logo2.png" class="rounded float-start"  width = 70 height = 70 />
+            <div class ="buka justify-content-center">Quran.com by Dwitya Maudy Alfira</div>
           </a>
           <button
             class="navbar-toggler"
@@ -98,15 +100,15 @@ export default {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <RouterLink class="nav-link active" aria-current="page" to="/"
-                >Home</RouterLink
+                >Beranda</RouterLink
                 >
               </li>
               <li class="nav-item">
-                <router-link :to="{ name: 'search' }" class="nav-link">Search</router-link>
+                <router-link :to="{ name: 'search' }" class="nav-link">Cari Surah</router-link>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                   aria-expanded="false">Surah</a>
+                   aria-expanded="false">Info Surah</a>
                 <ul class="dropdown-menu">
                   <li v-for="surah in surahs" :key="surah.id">
                     <router-link :to="{ name: 'surahs', params: { id: surah.id } }" class="dropdown-item">{{
@@ -119,7 +121,7 @@ export default {
                 <router-link :to="{ name: 'random' }" class="nav-link">Ayat Pilihan</router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="{ name: 'contact' }" class="nav-link">Ayat Pilihan</router-link>
+                <router-link :to="{ name: 'contact' }" class="nav-link">Contact</router-link>
               </li>
             </ul>
           </div>
@@ -134,5 +136,14 @@ export default {
 .nav-link {
   font-size: 20px;
   color: black;
+}
+.buka {
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  font-family: "Segoe UI";
+  color: #453F79;
 }
 </style>

@@ -1,4 +1,11 @@
 <script>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#E1BA9D";
+  document.getElementsByTagName("body")[0].style.backgroundSize ="cover";
+});
+
 import { ref } from "vue";
 import axios from "axios";
 
@@ -81,3 +88,17 @@ export default {
     <div v-html="info"></div>
   </div>
 </template>
+
+<style scoped>
+.text-center {
+font-size: 25px;
+font-style: inherit;
+line-height: 2.25rem;
+
+  margin-top: 50px;
+
+text-align: center;
+font-family: "sans-serif";
+color: #453F79;
+}
+</style>

@@ -12,7 +12,7 @@ onMounted(() => {
     <div class="container">
       <div class="h1">Assalamu'alaikum! </div>
       <div class="h2">HARI INI SUDAH BACA AL-QUR'AN BELUM?</div>
-      <center><a class="btn btn-primary btn-xl" href="surah">MULAI MEMBACA</a></center>
+      <center><a class="btn btn-primary btn-xl" href="search">MULAI MEMBACA</a></center>
     </div>
   </header>
 </template>
@@ -22,13 +22,15 @@ onMounted(() => {
   header.y {
     background-repeat: no-repeat;
     background-size: cover;
+    display:flex;
+    align-items:center;
   }
   header.y .h1 {
-    padding-top: 50px;
     font-size: 25px;
     font-style: italic;
     line-height: 2.25rem;
 
+    margin-top: 150px;
     text-align: center;
     font-family: "Segoe UI";
     color: white;
@@ -49,7 +51,7 @@ onMounted(() => {
     border-color: #453F79;
     font-weight: 700;
 
-    margin-bottom: 449px;
+    margin-bottom: 150px;
   }
 }
 </style>

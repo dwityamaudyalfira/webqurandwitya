@@ -1,4 +1,5 @@
 <template>
+  <header class="y">
   <section class="semua" style="background-color: #E1BA9D;">
     <section class="hero is-small">
       <div class="hero-body">
@@ -28,9 +29,17 @@
     </section>
     <FooterView/>
   </section>
+  </header>
 </template>
 
 <script>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#E1BA9D";
+  document.getElementsByTagName("body")[0].style.backgroundSize ="cover";
+});
+
 export default {
   name: "QuranView",
   data() {

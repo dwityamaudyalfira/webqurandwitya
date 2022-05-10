@@ -38,8 +38,12 @@
 </template>
 
 <script>
-export default {
-}
+import { onMounted } from "vue";
+
+onMounted(() => {
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#E1BA9D";
+  document.getElementsByTagName("body")[0].style.backgroundSize ="cover";
+});
 
 </script>
 

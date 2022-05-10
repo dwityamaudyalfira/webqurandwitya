@@ -1,4 +1,11 @@
 <script >
+import { onMounted } from "vue";
+
+onMounted(() => {
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#E1BA9D";
+  document.getElementsByTagName("body")[0].style.backgroundSize ="cover";
+});
+
 import { ref } from "vue";
 import axios from "axios";
 
@@ -87,8 +94,9 @@ export default {
 </script>
 
 <template>
+  <header class="y">
   <div class="text-lg-center mt-5">
-    <h1 class="text-lg-center">Masukkan nomor surah!</h1>
+    <div class="h1">Silahkan masukkan nomor surat anda.</div>
     <input v-model="cari" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <div v-if="cari">
       <div class="mt-5">
@@ -114,5 +122,24 @@ export default {
       </div>
     </div>
   </div>
+  </header>
 </template>
 
+<style scoped>
+header.y .h1 {
+  font-size: 25px;
+  font-style: italic;
+  line-height: 2.25rem;
+
+  text-align: center;
+  font-family: "Segoe UI";
+  color: white;
+}
+header.y {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #E1BA9D;
+    display:flex;
+    align-items:center;
+  }
+</style>
