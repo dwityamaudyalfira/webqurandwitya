@@ -12,7 +12,7 @@
               <img class="mx-auto rounded-circle" src="/src/assets/1.jpg" alt="..." />
               <h4 class="media">WhatsApp</h4>
               <p class="tl">088742693594</p>
-              <a class="btn btn-social mx-2" style="background-image: url('src/assets/wa.png');" href="https://wa.me/6288742693594"></a>
+              <a class="btn btn-primary btn-xl" href="https://wa.me/6288742693594">click here</a>
             </div>
           </div>
           <div class="col-lg-4">
@@ -20,7 +20,7 @@
               <img class="mx-auto rounded-circle" src="/src/assets/2.png" alt="..." />
               <h4 class="media">Email</h4>
               <p class="tl">dwityamaudy@gmail.com</p>
-              <a class="btn btn-social mx-2" style="background-image: url('src/assets/email.png');" href="mailto:dwityamaudy@gmail.com"></a>
+              <a class="btn btn-primary btn-xl" href="mailto:dwityamaudy@gmail.com">click here</a>
             </div>
           </div>
           <div class="col-lg-4">
@@ -28,7 +28,7 @@
               <img class="mx-auto rounded-circle" src="/src/assets/3.png" alt="..." />
               <h4 class="media">Instagram</h4>
               <p class="tl">@bentocake.athere</p>
-              <a class="btn btn-social mx-2" style="background-image: url('src/assets/ig.png');" href="https://www.instagram.com/bentocake.athere/?igshid=YmMyMTA2M2Y="></a>
+              <a class="btn btn-primary btn-xl" href="https://www.instagram.com/bentocake.athere/?igshid=YmMyMTA2M2Y=">click here</a>
             </div>
           </div>
         </div>
@@ -90,14 +90,11 @@ onMounted(() => {
   font-size: 25px;
   color: white;
 }
-.btn-social {
-  height: 2.5rem;
-  width: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
+.btn-primary {
+  text-align: center;
+  color: #fff;
+  background-color: #453F79;
+  border-color: #453F79;
+  font-weight: 700;
 }
 </style>

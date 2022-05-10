@@ -12,7 +12,7 @@ onMounted(() => {
     <div class="container">
       <div class="h1">Assalamu'alaikum! </div>
       <div class="h2">HARI INI SUDAH BACA AL-QUR'AN BELUM?</div>
-      <center><a class="btn btn-primary btn-xl" href="search">MULAI MEMBACA</a></center>
+      <center><router-link :to="{ name: 'search' }" class="btn btn-primary btn-xl" >MULAI MEMBACA</router-link></center>
     </div>
   </header>
 </template>

@@ -92,13 +92,13 @@ export default {
 <style scoped>
 .text-center {
 font-size: 25px;
-font-style: inherit;
+font-weight: bold;
 line-height: 2.25rem;
 
   margin-top: 50px;
 
 text-align: center;
-font-family: "sans-serif";
+font-family: "monospace";
 color: #453F79;
 }
 </style>
