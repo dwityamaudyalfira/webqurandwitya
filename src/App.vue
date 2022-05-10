@@ -81,8 +81,7 @@ export default {
         style="background-color: #FAE7DB"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img  src="src/assets/logo2.png" class="rounded float-start"  width = 70 height = 70 />
+          <a class="navbar-brand" href="/">
             <div class ="buka justify-content-center">Quran.com by Dwitya Maudy Alfira</div>
           </a>
           <button
