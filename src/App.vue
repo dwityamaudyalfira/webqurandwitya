@@ -76,7 +76,11 @@ export default {
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img  src="../assets/logo1.ico" class="rounded float-start" alt="" width = 70 height = 70/>
+            <img
+              src="src/assets/logoquran.png"
+              alt=""
+              class="d-inline-block align-text-middle"
+            />
             Quran.com by Dwitya Maudy Alfira
           </a>
           <button
@@ -115,7 +119,7 @@ export default {
                 <router-link :to="{ name: 'random' }" class="nav-link">Ayat Pilihan</router-link>
               </li>
               <li class="nav-item">
-                <RouterLink class="nav-link" to="/contact">Contact</RouterLink>
+                <router-link :to="{ name: 'contact' }" class="nav-link">Ayat Pilihan</router-link>
               </li>
             </ul>
           </div>
